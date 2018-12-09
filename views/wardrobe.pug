@@ -1,0 +1,33 @@
+extends layout
+block content
+    script.
+        console.log('test');
+        var name = "Emily2";
+        console.log(name);
+
+    h3 Your wardrobe
+    #itemList(style="font-size: 14px")
+
+    h3 Add items
+    form(action='/wardrobe', method='POST', enctype='application/x-www-form-urlencoded')
+        input(type='hidden', name='_csrf', value=_csrf)
+        .form-group.row
+            label.col-md-3.col-form-label.font-weight-bold.text-right(for='material') Item
+            .col-md-7
+                select.form-control(type='input', name='type')
+                    option(selected disabled) Pick your item
+                    option(value='tshirt') T-shirt
+                    option(value='jeans') Jeans
+                    option(value='jumper') Jumper
+        .form-group.row
+            label.col-md-3.col-form-label.font-weight-bold.text-right(for='material') Material
+            .col-md-7
+                select.form-control(type='dropdown', name='material', id='material')
+                    option(selected disabled) Pick your material
+                    option(value='wool') Wool
+                    option(value='cotton') Cotton
+                    option(value='acrylic') Acrylic
+        .form-group.offset-sm-3.col-md-7.pl-2
+            button.btn.btn-success(type='submit')
+                i.fas.fa-user-plus.fa-sm
+                | Add
