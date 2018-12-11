@@ -1,6 +1,9 @@
 /* eslint-env jquery, browser */
 $(document).ready(() => {
 
+var dynatableScript = document.createElement('script');
+dynatableScript.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js');
+document.head.appendChild(dynatableScript);
 
 
 /* 
@@ -14,13 +17,16 @@ xhttp.setRequestHeader("Content-type", "x-www-form-urlencoded");
 xhttp.send();
 
 // Parse itemList
-var response = JSON.parse(xhttp.responseText);
-console.log(response);
+var response = JSON.parse(xhttp.response);
 
-// Print list to body
-var div = document.getElementById('itemList');
-
+// Print itemList to table
+var div = document.getElementById('itemsTable');
 for (item of response) {
-    div.innerHTML += `<p>${item[0].material} ${item[0].type}</p>`; 
+    div.innerHTML += `<tr>
+    <td>${item[0].type}</td>
+    <td>${item[0].material}</td>
+    <td style="display: none">${item[0].id}</td>
+    </tr>`; 
 };
+
 })

@@ -1,12 +1,11 @@
 extends layout
 block content
-    script.
-        console.log('test');
-        var name = "Emily2";
-        console.log(name);
-
     h3 Your wardrobe
-    #itemList(style="font-size: 14px")
+
+    table#itemsTable.table
+        th Type
+        th Material
+        th(style="display: none") ID
 
     h3 Add items
     form(action='/wardrobe', method='POST', enctype='application/x-www-form-urlencoded')

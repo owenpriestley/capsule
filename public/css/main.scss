@@ -12,6 +12,16 @@
 // Scaffolding
 // -------------------------
 
+.table {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 400;
+}
+
+th {
+  color: rgb(193 , 193, 193);
+  font-weight: 400;
+}
+
 html {
   position: relative;
   min-height: 100%;
