@@ -32,7 +32,9 @@ exports.getItem = (req, res) => {
       user.wardrobe.items
       .push({
           type: req.body.type,
+          colour: req.body.colour,
           material: req.body.material,
+          brand: req.body.brand,
           id: id
       });
       user.save();

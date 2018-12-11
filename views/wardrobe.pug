@@ -1,32 +1,59 @@
 extends layout
 block content
-    h3 Your wardrobe
 
-    table#itemsTable.table
-        th Type
-        th Material
-        th(style="display: none") ID
+    .row
+        .col-md-9    
+            h3 Your wardrobe
 
-    h3 Add items
-    form(action='/wardrobe', method='POST', enctype='application/x-www-form-urlencoded')
-        input(type='hidden', name='_csrf', value=_csrf)
-        .form-group.row
-            label.col-md-3.col-form-label.font-weight-bold.text-right(for='material') Item
-            .col-md-7
-                select.form-control(type='input', name='type')
-                    option(selected disabled) Pick your item
-                    option(value='tshirt') T-shirt
-                    option(value='jeans') Jeans
-                    option(value='jumper') Jumper
-        .form-group.row
-            label.col-md-3.col-form-label.font-weight-bold.text-right(for='material') Material
-            .col-md-7
-                select.form-control(type='dropdown', name='material', id='material')
-                    option(selected disabled) Pick your material
-                    option(value='wool') Wool
-                    option(value='cotton') Cotton
-                    option(value='acrylic') Acrylic
-        .form-group.offset-sm-3.col-md-7.pl-2
-            button.btn.btn-success(type='submit')
-                i.fas.fa-user-plus.fa-sm
-                | Add
+            table#itemsTable.table
+                th Type
+                th Colour
+                th Material
+                th Brand
+                th(style="border: none;")
+    .row.spacer
+        .col-md-9
+            h3 Add items
+            form(action='/wardrobe', method='POST', enctype='application/x-www-form-urlencoded')
+                input(type='hidden', name='_csrf', value=_csrf)
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='material') Item
+                    .col-md-7
+                        select.form-control(type='input', name='type')
+                            option(selected disabled) Pick an item
+                            option(value='T-shirt') T-shirt
+                            option(value='Jeans') Jeans
+                            option(value='Jumper') Jumper
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='colour') Colour
+                    .col-md-7
+                        select.form-control(type='dropdown', name='colour', id='colour')
+                            option(selected disabled) Pick a colour
+                            option(value='Blue') Blue
+                            option(value='Black') Black
+                            option(value='Red') Red
+                            option(value='Gray') Gray
+                            option(value='White') White
+
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='material') Material
+                    .col-md-7
+                        select.form-control(type='dropdown', name='material', id='material')
+                            option(selected disabled) Pick a material
+                            option(value='Wool') Wool
+                            option(value='Cotton') Cotton
+                            option(value='Acrylic') Acrylic
+                .form-group.row
+                    label.col-md-3.col-form-label.font-weight-bold.text-right(for='brand') Brand
+                    .col-md-7
+                        select.form-control(type='dropdown', name='brand', id='brand')
+                            option(selected disabled) Pick a brand
+                            option(value='Cos') Cos
+                            option(value='H&M') H&M
+                            option(value='Filson') Filson
+                            option(value='APC') APC
+                            option(value='Levis') Levis
+                .form-group.offset-sm-3.col-md-7.pl-2
+                    button.btn.btn-success(type='submit')
+                        i.fas.fa-user-plus.fa-sm
+                        | Add

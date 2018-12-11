@@ -1,11 +1,6 @@
 /* eslint-env jquery, browser */
 $(document).ready(() => {
 
-var dynatableScript = document.createElement('script');
-dynatableScript.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/Dynatable/0.3.1/jquery.dynatable.min.js');
-document.head.appendChild(dynatableScript);
-
-
 /* 
 Get list of items
 */
@@ -24,8 +19,10 @@ var div = document.getElementById('itemsTable');
 for (item of response) {
     div.innerHTML += `<tr>
     <td>${item[0].type}</td>
+    <td>${item[0].colour}</td>
     <td>${item[0].material}</td>
-    <td style="display: none">${item[0].id}</td>
+    <td>${item[0].brand}</td>
+    <td><button name="${item[0].id}" value="${item[0].id}">Delete</button></td>
     </tr>`; 
 };
 

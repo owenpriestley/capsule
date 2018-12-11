@@ -6,7 +6,9 @@ const mongoose = require('mongoose');
 
 var itemSchema = new mongoose.Schema ({
   type: String, 
+  colour: String, 
   material: String,
+  brand: String,
   id: String,
 })
 
