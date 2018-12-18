@@ -45,28 +45,11 @@ exports.getItem = (req, res) => {
 
   // DELETE an item
 
-/*
-exports.deleteItem = (req, res, next) => {
-    User.findByIdAndUpdate(req.user.id, (err, user) => {      
-    console.log("hello" + user);  
-    $pull: {  
-        wardrobe: {
-            _id: {
-            }
-        }
-    }
-    console.log(user.wardrobe.items);    
-user.save();
-});
-res.redirect('/wardrobe');
-}
-*/
-
 //5c1827dfc13025f86dfaf075
 
 exports.deleteItem = (req, res, next) => {
-    User.findOne({"_id": "5c1827dfc13025f86dfaf075"}, (err, item) => {
-    console.log(item);
+    User.findOne({ 'wardrobe.items': { $elemMatch: { "_id": "5c1985359db5074cb3da562d",} } }, {wardrobe:1}, (err, item) => {
+    console.log(item.wardrobe.items[0]);
     if (err) {
         return console.log("error: " + err);
       }

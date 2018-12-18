@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
   },
 
   wardrobe: {
-    items: [[itemSchema]]
+    items: [itemSchema]
   }
 
 }, { timestamps: true });

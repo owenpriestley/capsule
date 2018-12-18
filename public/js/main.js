@@ -17,12 +17,13 @@ var response = JSON.parse(xhttp.response);
 // Print itemList to table
 var div = document.getElementById('itemsTable');
 for (item of response) {
+    console.log(item.type);
     div.innerHTML += `<tr>
-    <td>${item[0].type}</td>
-    <td>${item[0].colour}</td>
-    <td>${item[0].material}</td>
-    <td>${item[0].brand}</td>
-    <td><button onClick="deleteItem()" name="itemId" value="${item[0].id}">Delete</button></td>
+    <td>${item.type}</td>
+    <td>${item.colour}</td>
+    <td>${item.material}</td>
+    <td>${item.brand}</td>
+    <td><button action="/wardrobe/deleteItem", method="POST", name="itemId", value="${item._id}">Delete</button></td>
     </tr>`; 
 };
 
