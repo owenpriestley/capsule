@@ -423,38 +423,3 @@ exports.postForgot = (req, res, next) => {
     .then(() => res.redirect('/forgot'))
     .catch(next);
 };
-
-// GET Wardrobe
-
-exports.getItem = (req, res) => {
-  User.findById(req.user.id, (err, docs) => {    
-    res.render('wardrobe.pug');
-    console.log(docs.wardrobe.item);
-    title: 'Your wardrobe'
-})
-};
-
-// POST Wardrobe
-
-exports.postItem = (req, res, next) => {
-  User.findById(req.user.id, (err, user) => {
-    user.wardrobe.item[0].type.push(req.body.type);
-    user.wardrobe.item[0].material.push(req.body.material);
-    user.wardrobe.item[0].id.push(id);
-    user.save();
-    req.flash('success', { msg: 'Added item' });
-    res.redirect('/wardrobe');
-    });
-};
-
-/*exports.postItem = (req, res, next) => {
-  User.findById(req.user.id, (err, user) => {
-    user.wardrobe.item[0].type = req.body.type || '';
-    user.wardrobe.item[0].material = req.body.material || '';
-    user.wardrobe.item[0].id = id;
-    user.save();
-    req.flash('success', { msg: 'Added item' });
-    res.redirect('/wardrobe');
-    });
-};
-*/

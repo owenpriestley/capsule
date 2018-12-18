@@ -22,7 +22,7 @@ for (item of response) {
     <td>${item[0].colour}</td>
     <td>${item[0].material}</td>
     <td>${item[0].brand}</td>
-    <td><button name="${item[0].id}" value="${item[0].id}">Delete</button></td>
+    <td><button onClick="deleteItem()" name="itemId" value="${item[0].id}">Delete</button></td>
     </tr>`; 
 };
 

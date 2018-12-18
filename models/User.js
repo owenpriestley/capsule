@@ -9,7 +9,7 @@ var itemSchema = new mongoose.Schema ({
   colour: String, 
   material: String,
   brand: String,
-  id: String,
+  _id: String,
 })
 
 // Main user schema (incl. wardrobe)

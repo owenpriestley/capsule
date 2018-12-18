@@ -148,6 +148,7 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 app.get('/wardrobe', passportConfig.isAuthenticated, wardrobeController.getItem);
 app.post('/wardrobe', passportConfig.isAuthenticated, wardrobeController.postItem);
 app.get('/wardrobe/itemList', passportConfig.isAuthenticated, wardrobeController.itemList);
+app.post('/wardrobe/deleteItem', passportConfig.isAuthenticated, wardrobeController.deleteItem);
 
 
 /**

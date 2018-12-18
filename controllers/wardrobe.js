@@ -35,10 +35,41 @@ exports.getItem = (req, res) => {
           colour: req.body.colour,
           material: req.body.material,
           brand: req.body.brand,
-          id: id
+          _id: id
       });
       user.save();
       req.flash('success', { msg: 'Added item' });
       res.redirect('/wardrobe');
       });
+  };
+
+  // DELETE an item
+
+/*
+exports.deleteItem = (req, res, next) => {
+    User.findByIdAndUpdate(req.user.id, (err, user) => {      
+    console.log("hello" + user);  
+    $pull: {  
+        wardrobe: {
+            _id: {
+            }
+        }
+    }
+    console.log(user.wardrobe.items);    
+user.save();
+});
+res.redirect('/wardrobe');
+}
+*/
+
+//5c1827dfc13025f86dfaf075
+
+exports.deleteItem = (req, res, next) => {
+    User.findOne({"_id": "5c1827dfc13025f86dfaf075"}, (err, item) => {
+    console.log(item);
+    if (err) {
+        return console.log("error: " + err);
+      }
+      res.redirect('/wardrobe');      
+    });
   };
