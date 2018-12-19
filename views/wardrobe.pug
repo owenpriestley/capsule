@@ -4,13 +4,15 @@ block content
     .row
         .col-md-9    
             h3 Your wardrobe
+            form(action="/wardrobe/deleteItem" method="POST" enctype='application/x-www-form-urlencoded')
+                input(type='hidden', name='_csrf', value=_csrf)
+                table#itemsTable.table
+                    th Type
+                    th Colour
+                    th Material
+                    th Brand
+                    th(style="border: none;")
 
-            table#itemsTable.table
-                th Type
-                th Colour
-                th Material
-                th Brand
-                th(style="border: none;")
     .row.spacer
         .col-md-9
             h3 Add items

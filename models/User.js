@@ -83,5 +83,6 @@ userSchema.methods.gravatar = function gravatar(size) {
 };
 
 const User = mongoose.model('User', userSchema);
+const Item = mongoose.model('Items', itemSchema);
 
 module.exports = User;

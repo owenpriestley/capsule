@@ -3,6 +3,7 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const User = require('../models/User'); 
+const Item = require('../models/User'); 
 const req = require('request');
 const mongoose = require('mongoose');
 
@@ -47,12 +48,27 @@ exports.getItem = (req, res) => {
 
 //5c1827dfc13025f86dfaf075
 
-exports.deleteItem = (req, res, next) => {
-    User.findOne({ 'wardrobe.items': { $elemMatch: { "_id": "5c1985359db5074cb3da562d",} } }, {wardrobe:1}, (err, item) => {
-    console.log(item.wardrobe.items[0]);
+/*exports.deleteItem = (req, res, next) => {
+    User.findOne({ 'wardrobe.items': { $elemMatch: { "_id": "5c1a4b7d482bf501ed20ae4a",} } }, (err, item) => {
+    console.log(item);
     if (err) {
         return console.log("error: " + err);
-      }
-      res.redirect('/wardrobe');      
+        }
+        res.redirect('/wardrobe');      
     });
+  };
+*/
+
+exports.deleteItem = (req, res, next) => {
+    // Find the users wardrobe
+    User.findOneAndUpdate({ _id: req.user.id },
+    // Remove an item based on filter _id
+        {$pull: 
+            { 'wardrobe.items': 
+            { '_id' : req.body.itemId }}}, (err, item) => {
+        // Save new wardrobe
+        item.save();
+    });
+    req.flash('success', { msg: 'Deleted item' });
+    res.redirect('/wardrobe');
   };

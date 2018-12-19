@@ -23,7 +23,10 @@ for (item of response) {
     <td>${item.colour}</td>
     <td>${item.material}</td>
     <td>${item.brand}</td>
-    <td><button action="/wardrobe/deleteItem", method="POST", name="itemId", value="${item._id}">Delete</button></td>
+    <td>
+    <button name="itemId" value="${item._id}">Delete</button>
+    </form>
+    </td>
     </tr>`; 
 };
 
